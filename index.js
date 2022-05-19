@@ -1,5 +1,5 @@
+require("dotenv").config();
 var express = require('express');
-
 var cors=require('cors');
 var mongoose=require('mongoose');
 const app = express()
@@ -8,7 +8,7 @@ var appRoutes=require('./routes/appRoutes');
 
 
 
-mongoose.connect('mongodb+srv://sovam:12082000@cluster0.k099p.mongodb.net/Result').then(()=>{
+mongoose.connect(process.env.DB_URL).then(()=>{
   console.log("Mongodb connected ")
 }).catch(err=>console.log(err));
 app.use(cors());
